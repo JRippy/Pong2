@@ -1,0 +1,15 @@
+﻿  pch.cpp
+  Config.cpp
+  Dot.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltimer.h(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  Game.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltexture.h(6): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  LTexture.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltexture.h(6): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  LTimer.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltimer.h(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  Pong.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltexture.h(6): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  Racket.cpp
+c:\users\etudiant\documents\c++\pong\pong-master\pong\ltimer.h(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'SDL.h' : No such file or directory
+  Génération de code en cours...
