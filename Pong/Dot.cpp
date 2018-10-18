@@ -7,8 +7,8 @@ Dot::Dot()
 	resetPosition();
 
 	//Initialize the velocity
-	mVelX = c.getDotVel();
-	mVelY = c.getDotVel();
+	mVelX = (float)c.getDotVel();
+	mVelY = (float)c.getDotVel();
 }
 
 int Dot::getPlayer1Score()
@@ -19,6 +19,16 @@ int Dot::getPlayer1Score()
 int Dot::getPlayer2Score()
 {
 	return player2;
+}
+
+void Dot::setPlayer1Score(int p1)
+{
+	player1 = p1;
+}
+
+void Dot::setPlayer2Score(int p2)
+{
+	player2 = p2;
 }
 
 float Dot::getMPosX()
@@ -139,43 +149,59 @@ bool Dot::checkCollision(int ax, int ay)
 	aw = ax + c.getRacketWidth();
 	ah = ay + c.getRacketHeight();
 
-	if (mPosX + c.getDotWidth() >= ax && mPosX <= aw && mPosY >= ay && mPosY <= ah)
-	{
+
+	float dotYMiddle = mPosY + (c.getDotHeight() / 2);
+
+	if (mPosX + c.getDotWidth() >= ax && mPosX <= aw && mPosY + c.getDotHeight() >= ay && mPosY <= ah)
+	{		
+
+		//float d = (float)c.getRacketHeight() / 4;
+		//mVelX = -mVelX;
+		//if (dotMiddle >= ay + d || dotMiddle <= ah - d)
+		//{
+		//	mVelY = 0;
+		//	d = d / 2;
+
+		//	//Racket up
+		//	if (dotMiddle >= ay + d)
+		//	{
+		//		mVelY += 100;
+		//		d = d / 2;
+		//		printf("Haut de la barre M\n");
+
+		//		if (dotMiddle >= ay + d)
+		//		{
+		//			mVelY += 100;
+		//			printf("Haut de la barre B\n");
+		//		}
+		//	}//Racket down
+		//	else if (dotMiddle <= ah - d)
+		//	{
+		//		mVelY -= 100;
+		//		d = d / 2;
+
+		//		if (dotMiddle <= ah - d)
+		//		{
+		//			mVelY -= 100;
+		//		}
+
+		//	}
+		//}
+		
+
+		//-----------------------------------------------------------------------------------------
+		const float Pi = 3.141592654f;
+		float MAXBOUNCEANGLE = 5 * Pi / 12;
+		
+		float relativeIntersectY = (ay + (c.getRacketHeight() / 2)) - dotYMiddle;
+		float normalizedRelativeIntersectionY = (relativeIntersectY / (c.getRacketHeight() / 2));
+		float bounceAngle = normalizedRelativeIntersectionY * MAXBOUNCEANGLE;
+
 		mVelX = -mVelX;
-		float d = (float)c.getRacketHeight() / 4;
-		float dotMiddle = mPosY + (c.getDotHeight() / 2);
+		mVelY = -c.getDotVel() * sin(bounceAngle);
 
-		if (dotMiddle >= ay + d || dotMiddle <= ah - d)
-		{
-			mVelY = 0;
-			d = d / 2;
-
-			if (dotMiddle >= ay + d)
-			{
-				mVelY += 100;
-				d = d / 2;
-				printf("Haut de la barre M\n");
-
-				if (dotMiddle >= ay + d)
-				{
-					mVelY += 100;
-					printf("Haut de la barre B\n");
-				}
-			}
-			else if (dotMiddle <= ah - d)
-			{
-				mVelY -= 100;
-				d = d / 2;
-				printf("Bas de la barre M\n");
-
-				if (dotMiddle <= ah - d)
-				{
-					mVelY -= 100;
-					printf("Bas de la barre B\n");
-				}
-
-			}
-		}
+		printf("Bounce Ball : %f\n", mVelY);
+		//-----------------------------------------------------------------------------------------
 		return true;
 	}
 

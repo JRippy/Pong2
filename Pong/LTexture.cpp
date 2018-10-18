@@ -8,8 +8,6 @@
 
 
 ////Scene textures
-//LTexture gDotTexture;
-//LTexture gRacketTexture;
 
 
 LTexture::LTexture()

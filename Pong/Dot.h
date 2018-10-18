@@ -4,6 +4,7 @@
 #include "Config.h"
 #include "LTexture.h"
 #include <SDL.h>
+#include <math.h>
 
 
 //The dot that will move around on the screen
@@ -25,6 +26,9 @@ public:
 
 	int getPlayer1Score();
 	int getPlayer2Score();
+
+	void setPlayer1Score(int p1);
+	void setPlayer2Score(int p2);
 
 	float getMPosX();
 	float getMPosY();

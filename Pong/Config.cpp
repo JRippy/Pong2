@@ -44,6 +44,11 @@ int Config::getRacketVel()
 	return RACKET_VEL;
 }
 
+int Config::getMiniRacketHeight()
+{
+	return RACKET_MINI_HEIGHT;
+}
+
 int Config::getEndPartyGameScore()
 {
 	return END_PARTY_GAME;

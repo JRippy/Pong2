@@ -15,6 +15,7 @@ public:
 	static int getRacketHeight();
 	static int getRacketWidth();
 	static int getRacketVel();
+	static int getMiniRacketHeight();
 
 	static int getEndPartyGameScore();
 
@@ -34,9 +35,10 @@ private:
 	//The dimensions of the dot
 	static const int RACKET_WIDTH = 20;
 	static const int RACKET_HEIGHT = 100;
+	static const int RACKET_MINI_HEIGHT = 40;
 
 	//Maximum axis velocity of the dot
-	static const int RACKET_VEL = 640;
+	static const int RACKET_VEL = 200;
 
 	//Maximum game point
 	static const int END_PARTY_GAME = 1;

@@ -9,6 +9,12 @@ class Racket
 {
 public:
 
+	/*
+	NOTE
+
+	Je prefererais une sous classe pour l'IA
+	*/
+
 	Config c;
 
 	Racket();
@@ -17,17 +23,19 @@ public:
 	float getRPosX();
 	float getRPosY();
 
-	//Takes key presses and adjusts the dot's velocity
+	//Takes key presses and adjusts the racket's velocity
 	void handleEvent(SDL_Event& e, float timeStep);
 
-	//Moves the dot
+	//Moves the racket
 	void move(float timeStep);
 
-	//Moves the dot
+	//Moves the racket
 	void moveOpponent(float timeStep, float dotX, float dotY);
 
-	//Shows the dot on the screen
+	//Shows the racket on the screen
 	void render(SDL_Renderer* gRenderer);
+
+	void miniRender(SDL_Renderer* gRenderer);	
 
 	void free();
 

@@ -40,5 +40,9 @@ void Game::displayWinner(int p1, int p2, SDL_Color textColor, SDL_Renderer* gRen
 	gInputTextTexture.loadFromRenderedText(winnerText.c_str(), textColor, gRenderer);
 	gPromptTextTexture.render((c.getScreenWidth() - gPromptTextTexture.getWidth()) / 2, 0, gRenderer);
 	gInputTextTexture.render((c.getScreenWidth() - gInputTextTexture.getWidth()) / 2, c.getScreenHeight() / 2, gRenderer);
+
+	gInputTextTexture.loadFromRenderedText("Press a key", textColor, gRenderer);
+	gPromptTextTexture.render((c.getScreenWidth() - gPromptTextTexture.getWidth()) / 2, 0, gRenderer);
+	gInputTextTexture.render((c.getScreenWidth() - gInputTextTexture.getWidth()) / 2, c.getScreenHeight() / 3 * 2, gRenderer);
 	
 }
